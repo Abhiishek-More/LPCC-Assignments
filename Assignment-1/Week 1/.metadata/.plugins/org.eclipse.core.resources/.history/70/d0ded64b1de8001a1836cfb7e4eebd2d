@@ -1,0 +1,113 @@
+package assignment1;
+
+import java.awt.Label;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Scanner;
+
+public class TwoPassAssembler {
+
+	public static void main(String[] args) throws IOException 
+	{	
+		boolean q=true;
+		Map<String, Integer> map = new HashMap<>();
+		List<String> sl=new ArrayList<>();
+		List<Integer> il = new ArrayList<>();
+		List<String> LT = new ArrayList<>();
+		List<Integer> LTA = new ArrayList<>();
+		
+		Scanner sc = new Scanner(System.in);
+		int ST=0;
+		int LC=100;
+		int temp=0;
+		
+		BufferedReader mr = new BufferedReader(new FileReader("E:\\Study!\\TYBT\\LPCC Lab\\Assignment 1\\Mnemonic.txt"));
+		String mnemonic=mr.readLine();
+		String marr[]=mnemonic.split(" ");
+		
+		String input = null;
+		
+		while(q)
+		{
+		input = sc.nextLine();
+		String lt = input.replaceAll("[^\\d]", " ");
+		lt = lt.trim(); 
+		lt = lt.replaceAll(" +", " "); 
+		
+		LC++;
+		String a=input.replace("," , " ");
+		String [] arr = a.split(" ");
+		temp=ST;
+		
+		add:
+		for(int i=0; i<26; i++)
+		{
+			if(arr[0].equals(marr[i]))
+			{
+				++ST;
+				break add;
+			}
+		}	
+		
+		if(temp == ST)
+		{
+			LT.add(lt);
+			LTA.add(LC);
+			sl.add(arr[0]);
+			il.add(LC);
+		}
+		//if(temp == ST)
+		
+		if(input.equals("END"))
+		{
+			q=false;
+		}
+
+		System.out.println("Number of words in " + input + " is " + arr.length);		
+		}
+		
+		System.out.println();
+		System.out.println("The value of ST is " + ((LC-100)-ST));
+		System.out.println("The value of LC is " + LC);
+		
+		System.out.println();
+		System.out.println("Enter the file name containing ALP ");
+		String file = sc.next();
+		
+		BufferedReader br = new BufferedReader(new FileReader("E:\\Study!\\TYBT\\LPCC Lab\\Assignment 1\\" + file));
+		String line;
+		System.out.println();
+		while ((line = br.readLine()) != null) 
+		{
+		   System.out.println(line);
+		}
+		
+		System.out.println();
+		System.out.println("SYMBOL");
+		for(int i=0; i<sl.size(); i++)
+		{
+			System.out.println(sl.get(i));
+		}
+		
+		System.out.println();
+		System.out.println("SYMBOL" + " LC");
+		for(int i=0; i<sl.size(); i++)
+		{
+			System.out.println(sl.get(i) + "	" + il.get(i));
+		}
+		
+		System.out.println();
+		System.out.println("Literal" + " Address");
+		for(int i=0; i<LT.size(); i++)
+		{
+			System.out.println(LT.get(i) + "	 " + LTA.get(i));
+		}
+	}
+}

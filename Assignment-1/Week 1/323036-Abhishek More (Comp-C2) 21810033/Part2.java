@@ -1,0 +1,33 @@
+package assignment1;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.Scanner;
+
+public class Part2 
+{
+	@SuppressWarnings("resource")
+	public static void main(String[] args) throws IOException 
+	{		
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter file name containing ALP!");
+		String filename=sc.next();
+		
+		BufferedReader br = new BufferedReader(new FileReader("E:\\Study!\\TYBT\\LPCC Lab\\Assignment 1\\" + filename));
+		String line;
+		System.out.println();
+		while ((line = br.readLine()) != null) 
+		{
+			line=line.replace(",", " ");
+			String [] arr = line.split(" ");
+			
+			for(int i=0; i<arr.length; i++)
+			{
+				System.out.print(arr[i] + " ");
+			}
+			System.out.println();
+		}
+		
+	}
+}

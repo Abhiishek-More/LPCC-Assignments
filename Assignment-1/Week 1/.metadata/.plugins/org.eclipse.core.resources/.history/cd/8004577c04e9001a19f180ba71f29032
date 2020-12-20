@@ -1,0 +1,34 @@
+package assignment1;
+
+import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+public class Part5 {
+
+	public static void main(String[] args) 
+	{
+		Scanner sc=new Scanner(System.in);
+		
+		String input;
+		boolean end=true;
+		
+		while(end)
+		{
+			input=sc.nextLine();
+			
+			if(input.equals("END"))
+			{
+				end=false;
+			}
+			
+			String a=input.replace(", ", " ");
+			String [] arr = a.split(" "); 
+			int size=arr.length;
+			
+			Pattern p = Pattern.compile("=");   // the pattern to search for
+		    Matcher m = p.matcher((arr.length)-1);
+		}		
+	}
+
+}

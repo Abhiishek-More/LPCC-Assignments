@@ -1,0 +1,55 @@
+package assignment1;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+public class Part5 {
+
+	public static void main(String[] args) 
+	{
+		Scanner sc=new Scanner(System.in);
+		
+		List<String> LT = new ArrayList<String>();
+		List<Integer> LTA = new ArrayList<String>();
+		
+		String input;
+		boolean end=true;
+		int lc=0;
+		
+		while(end)
+		{
+			input=sc.nextLine();
+			
+			String a=input.replace(",", " ");
+			String [] arr = a.split(" "); 
+			
+			if(arr[0].equals("START"))
+			{
+				lc=Integer.valueOf(arr[1]);
+				lc=lc-1;
+			}
+			lc=lc+1;
+			
+			int size=arr.length;
+			
+			Pattern p = Pattern.compile("=");   // the pattern to search for
+		    Matcher m = p.matcher(arr[size-1]);
+
+		    if(m.find())
+		    {
+		    	
+		    }
+		    
+
+			if(input.equals("END"))
+			{
+				end=false;
+			}
+			
+		}		
+	}
+
+}

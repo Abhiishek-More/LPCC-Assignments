@@ -1,0 +1,24 @@
+package assignment1;
+
+import java.util.Scanner;
+
+public class Part1 {
+
+	public static void main(String[] args) 
+	{
+		Scanner sc=new Scanner(System.in);
+		String input;
+		boolean end=true;
+		
+		while(end)
+		{
+			input=sc.nextLine();
+			
+			if(input.equals("END"))
+			{
+				end=false;
+			}
+		}
+	}
+
+}

@@ -1,0 +1,2 @@
+INDEX VERSION 1.131+D:\Study\3-TYBT\LPCC LAB\Assignment-2\Week 2\.metadata\.plugins\org.eclipse.jdt.core
+2666450434.index
